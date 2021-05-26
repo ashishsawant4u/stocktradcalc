@@ -63,6 +63,18 @@ $( document ).ready(function() {
 		
      });
      
+     $("#resetFormLink").on("click", function(e) {
+		
+			$(".trade-plan-element").text("");
+     		$(".trade-plan-element").val("");
+			$(".quantity-plan-element").text("");
+     		$(".quantity-plan-element").val("");
+     		$(".profit-loss-cell").text("");
+     		$('#tradeEntries').text("");
+		
+     });
+     
+     
      $(".btnradioBuySell").on("change", function(e) {
      		$(".quantity-plan-element").text("");
      		$(".quantity-plan-element").val("");
