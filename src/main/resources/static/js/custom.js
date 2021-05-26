@@ -90,6 +90,14 @@ function buyTransactionHandler(stockPrice,stopLoss,lossPerUnit,quantity)
 		let stopLossPrice = parseFloat(stopLoss);
 		let targetPrice = buyPrice + (lossPerUnit * 2);
 		let investmentAmount = buyPrice * Math.round(quantity);
+		let maxInvestmentPerTrade = $("#maxInvestmentPerTradeTxt").val();
+		if(investmentAmount > parseFloat(maxInvestmentPerTrade))
+		{
+			quantity = Math.round(parseFloat(maxInvestmentPerTrade)/buyPrice);
+			investmentAmount = buyPrice * Math.round(quantity);
+			$("#quantityUnitsLbl").text(Math.round(quantity));
+		}
+		
 		let possibleLoss = lossPerUnit * Math.round(quantity);
 		let totalProfit =  targetPrice * Math.round(quantity);
 		let possibleProfit = totalProfit - investmentAmount;
@@ -123,6 +131,13 @@ function shortSellTransactionHandler(stockPrice,stopLoss,lossPerUnit,quantity)
 		let stopLossPrice = parseFloat(stopLoss);
 		let targeBuyPrice = shortSellPrice - (lossPerUnit * 2);
 		let investmentAmount = targeBuyPrice * Math.round(quantity);
+		let maxInvestmentPerTrade = $("#maxInvestmentPerTradeTxt").val();
+		if(investmentAmount > parseFloat(maxInvestmentPerTrade))
+		{
+			quantity = Math.round(parseFloat(maxInvestmentPerTrade)/targeBuyPrice);
+			investmentAmount = targeBuyPrice * Math.round(quantity);
+			$("#quantityUnitsLbl").text(Math.round(quantity));
+		}
 		let possibleLoss =  parseFloat(lossPerUnit) * Math.round(quantity);
 		let totalProfit =  shortSellPrice * Math.round(quantity);
 		let possibleProfit = totalProfit - investmentAmount;
