@@ -33,7 +33,7 @@
   <br>
   <tags:tradeCalculator/>
   <tags:tradeProfitLosss/>
-  
+  <tags:summary/>
   	  
 
   <tags:help/>  

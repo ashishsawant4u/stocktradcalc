@@ -18,7 +18,7 @@
 		    </thead>
 		  	<tbody>
 		  		<tr>
-		  			<td class="fw-bold">Invested Amount</td>
+		  			<td class="fw-bold">Investment Amount</td>
 		  			<td id="investedAmountCell" class="profit-loss-cell"></td>
 		  		</tr>
 		  		<tr>

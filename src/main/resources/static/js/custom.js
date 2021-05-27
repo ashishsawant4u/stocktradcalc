@@ -114,7 +114,8 @@ function buyTransactionHandler(stockPrice,stopLoss,lossPerUnit,quantity)
 					  "2. Put STOP LOSS for "+Math.round(quantity)+" units at price "+stopLossPrice + "<br>"+
 					  "3. SELL "+Math.round(quantity)+" units at price "+ruppeSymbol+targetPrice;
 					  
-			$('#tradeEntries').html(entries);		
+			$('#tradeEntries').html(entries);
+			summaryTable(buyPrice,quantity,stopLossPrice,lossPerUnit,targetPrice,investmentAmount,possibleLoss,totalProfit,possibleProfit,roi,entries);		
 		}	
 		
 		if(quantity===0)
@@ -164,6 +165,7 @@ function shortSellTransactionHandler(stockPrice,stopLoss,lossPerUnit,quantity)
 					  "3. BUY "+Math.round(quantity)+" units at price "+ruppeSymbol+targeBuyPrice;
 					  
 			$('#tradeEntries').html(entries);	
+			summaryTable(targeBuyPrice,quantity,stopLossPrice,lossPerUnit,shortSellPrice,investmentAmount,possibleLoss,totalProfit,possibleProfit,roi,entries);
 		}
 		
 		if(quantity===0)
@@ -180,4 +182,21 @@ function resetForm()
 	$(".quantity-plan-element").text("");
 	$(".quantity-plan-element").val("");
 	$('#tradeEntries').html("");	
+}
+
+function summaryTable(buyPrice,quantity,stopLossPrice,lossPerUnit,targetPrice,investmentAmount,possibleLoss,totalProfit,possibleProfit,roi,entries)
+{
+	let ruppeSymbol = "<span class='fw-bold'>&#8377;</span>";
+	$("#summaryStockCell").html($("#companyNameTxt").val());
+	$("#summaryEntryPriceCell").html(buyPrice);
+	$("#summaryQuantityCell").html(quantity);
+	$("#summaryStopLossCell").html(stopLossPrice);
+	$("#summaryLossPerUnitCell").html(lossPerUnit);
+	$("#summaryTargetPriceCell").html(Math.round(targetPrice));
+	$("#summaryInvestedAmountCell").html(ruppeSymbol+investmentAmount);
+	$("#summaryPossibleLossCell").html(ruppeSymbol+possibleLoss);
+	$("#summaryProfitAmountCell").html(ruppeSymbol+totalProfit);
+	$("#summaryPossibleProfitCell").html(ruppeSymbol+possibleProfit);
+	$("#summaryROICell").html(roi+"%");
+	$("#summaryEntriesCell").html(entries);
 }
