@@ -1,7 +1,7 @@
 <%@ tag language="java" pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="tags" tagdir="/WEB-INF/tags" %>
 <div class="row">
-<div class=" border-end border-info border-2 col-xs-6 col-lg-6">
+<div class=" border-end border-right-bg-color border-2 col-xs-6 col-lg-6">
 <p class="fw-bold border-bottom border-dark border-1 pt-3">
 	Trading Entries
 	<tags:copySummary/>

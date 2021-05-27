@@ -5,7 +5,7 @@
 </div>
 <div class="card-body">
    <form id="tradePlannerForm">
-	  <div class="row bg-info p-2">
+	  <div class="row theme-one p-2">
 	    <div class="col-xs-2 col-lg-2">
 	      <label>Total Fund</label><span class="text-danger">*</span>
 	      <div class="input-group mb-3">	
@@ -31,8 +31,8 @@
 	      	<input type="text" class="form-control trade-plan-element only-numbers"  placeholder="Max investment/Trade" id="maxInvestmentPerTradeTxt">
 	      </div>
 	    </div>
-	    <div class="col-xs-2 bg-light p-2 col-lg-4">
-	      <label class="fw-bold">Risk Per Trade</label>	
+	    <div class="col-xs-2 theme-two p-2 col-lg-4">
+	      <label class="">Risk Per Trade</label>	
 	      <div class="input-group mb-3 d-none" id="perTradeRiskGroup">	
 	      	<span class="input-group-text">&#8377;</span>
 	      	<span id="perTradeRiskLbl" class="fw-bold form-control trade-plan-element"></span>

@@ -4,3 +4,14 @@ body{
 .cursor-pointer {
   cursor: pointer;
 }
+.theme-one{
+	    background-color: #084298!important;
+    	color: white
+}
+.theme-two{
+	    background-color: #55616c!important;
+    	color: white;
+}
+.border-right-bg-color{
+	    border-right-color: #084298!important;
+}

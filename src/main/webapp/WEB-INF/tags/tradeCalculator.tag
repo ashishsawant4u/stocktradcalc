@@ -28,7 +28,7 @@
 </div> 	  		 
    	
   <form id="quantityPlannerForm">
-  		<div class="row bg-info p-2">
+  		<div class="row theme-one p-2">
   			 <div class="col-xs-3 col-lg-3">
 		      <label>Stock Price/Limit Price</label><span class="text-danger">*</span>
 		      <div class="input-group mb-3">	
@@ -43,22 +43,22 @@
 		      	<input type="text" class="form-control quantity-plan-element only-numbers" placeholder="Stop Loss Price" id="stopLossTxt">
 		      </div>
 		    </div>
-		    <div class="col-xs-2 col-lg-2 bg-light p-2">
-		      <label class="fw-bold">Loss Per Unit</label>
+		    <div class="col-xs-2 col-lg-2 theme-two p-2">
+		      <label class="">Loss Per Unit</label>
 		      <div class="input-group mb-3 d-none" id="lossPerUnitsGroup">	
 	      		<span class="input-group-text">&#8377;</span>	
 		        <span id="lossPerUnitsLbl" class="fw-bold form-control quantity-plan-element"></span>
 		      </div>
 		    </div>
-		    <div class="col-xs-2 col-lg-2 bg-light p-2">
-		      <label class="fw-bold">Target/Exit Price</label>
+		    <div class="col-xs-2 col-lg-2 theme-two p-2">
+		      <label class="">Target/Exit Price</label>
 		      <div class="input-group mb-3 d-none" id="targetGroup">	
 	      		<span class="input-group-text">&#8377;</span>		
 		        <span id="targetLbl" class="fw-bold form-control quantity-plan-element"></span>
 		      </div>
 		    </div>
-		    <div class="col-xs-2 col-lg-2 bg-light p-2">
-		      <label class="fw-bold">Quantity can be purchased</label>	
+		    <div class="col-xs-2 col-lg-2 theme-two p-2">
+		      <label class="">Quantity can be purchased</label>	
 		      <div class="input-group mb-3 d-none" id="quantityUnitsGroup">
 		     	<span class="input-group-text">
 	                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-fill" viewBox="0 0 16 16">
