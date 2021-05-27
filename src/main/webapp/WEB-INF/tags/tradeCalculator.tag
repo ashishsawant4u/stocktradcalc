@@ -22,7 +22,7 @@
 	<div class="col-xs-6 col-lg-6">
 		<div class="input-group mb-3">
 			 <span class="input-group-text">Company/Stock Name</span>
-			 <input type="text" class="form-control fw-bold" id="companyNameTxt">
+			 <input type="text" class="form-control fw-bold quantity-plan-element" id="companyNameTxt">
 		</div>
 	</div>
 </div> 	  		 

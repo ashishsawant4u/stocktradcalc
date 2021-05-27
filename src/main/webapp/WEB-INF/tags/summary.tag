@@ -1,10 +1,16 @@
 <%@ tag language="java" pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="tags" tagdir="/WEB-INF/tags" %>
 
-
-<table class="table table-bordered  float-end" id="buyDetailsTable">
+<div id="summarySection" class="d-none">
+<p class="fw-bold border-bottom border-dark border-1 pt-3">
+	Summary
+	<tags:copySummary/>
+</p>	
+<table class="table table-bordered  float-end" id="summaryDetailsTable">
 		  	<thead>
 		      <tr>
 		        <th class="th-xs-3">Stock</th>
+		        <th class="th-xs-3">Transaction Type</th>
 		        <th class="th-xs-3">Entry Price</th>
 		        <th class="th-xs-3">Quantity</th>
 		        <th class="th-xs-3">Stop Loss</th>
@@ -21,6 +27,7 @@
 		  	<tbody>
 		  		<tr>
 		  			<td id="summaryStockCell" class="summary-table-cell"></td>
+		  			<td id="summaryTransactionTypeCell" class="summary-table-cell"></td>
 		  			<td id="summaryEntryPriceCell" class="summary-table-cell"></td>
 		  			<td id="summaryQuantityCell" class="summary-table-cell"></td>
 		  			<td id="summaryStopLossCell" class="summary-table-cell"></td>
@@ -35,3 +42,5 @@
 		  		</tr>
 		  	</tbody>
 		  </table>
+		  
+</div>		  

@@ -66,7 +66,6 @@ $( document ).ready(function() {
 		
      });
      
-     
      $(".btnradioBuySell").on("change", function(e) {
      		$(".quantity-plan-element").text("");
      		$(".quantity-plan-element").val("");
@@ -182,12 +181,15 @@ function resetForm()
 	$(".quantity-plan-element").text("");
 	$(".quantity-plan-element").val("");
 	$('#tradeEntries').html("");	
+	$("#summarySection").addClass('d-none');
 }
 
 function summaryTable(buyPrice,quantity,stopLossPrice,lossPerUnit,targetPrice,investmentAmount,possibleLoss,totalProfit,possibleProfit,roi,entries)
 {
+	$("#summarySection").removeClass('d-none');
 	let ruppeSymbol = "<span class='fw-bold'>&#8377;</span>";
 	$("#summaryStockCell").html($("#companyNameTxt").val());
+	$("#summaryTransactionTypeCell").html($('#btnradioBuy').is(':checked') ? 'BUY' : 'SHORT SELL');
 	$("#summaryEntryPriceCell").html(buyPrice);
 	$("#summaryQuantityCell").html(quantity);
 	$("#summaryStopLossCell").html(stopLossPrice);
@@ -199,4 +201,18 @@ function summaryTable(buyPrice,quantity,stopLossPrice,lossPerUnit,targetPrice,in
 	$("#summaryPossibleProfitCell").html(ruppeSymbol+possibleProfit);
 	$("#summaryROICell").html(roi+"%");
 	$("#summaryEntriesCell").html(entries);
+}
+
+function copySummaryTable(el) 
+{
+   var body = document.body,
+      range, sel;
+    if (document.createRange && window.getSelection) {
+      range = document.createRange();
+      sel = window.getSelection();
+      sel.removeAllRanges();
+      range.selectNodeContents(el);
+      sel.addRange(range);
+    }
+    document.execCommand("Copy");
 }
