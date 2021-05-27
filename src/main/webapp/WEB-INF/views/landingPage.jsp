@@ -13,10 +13,11 @@
 </head>
 <body>
 
-<tags:siteHeader/> 
 
-<div class="container">
 
+<div class="container-fluid">
+  <tags:siteHeader/> 
+  	
   <div class="row">
   	<a  id="resetFormLink" href="#" class="text-decoration-none w-50 cursor-pointer">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-clockwise" viewBox="0 0 16 16">

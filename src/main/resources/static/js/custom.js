@@ -51,9 +51,6 @@ $( document ).ready(function() {
 	   				shortSellTransactionHandler(stockPrice,stopLoss,lossPerUnit,quantity);
 	   			}
 	   			
-	   			
-	   			
-	   			
 			}
    	});	
 	
@@ -65,12 +62,7 @@ $( document ).ready(function() {
      
      $("#resetFormLink").on("click", function(e) {
 		
-			$(".trade-plan-element").text("");
-     		$(".trade-plan-element").val("");
-			$(".quantity-plan-element").text("");
-     		$(".quantity-plan-element").val("");
-     		$(".profit-loss-cell").text("");
-     		$('#tradeEntries').text("");
+			resetForm();
 		
      });
      
@@ -93,7 +85,8 @@ function buyTransactionHandler(stockPrice,stopLoss,lossPerUnit,quantity)
 		let maxInvestmentPerTrade = $("#maxInvestmentPerTradeTxt").val();
 		if(investmentAmount > parseFloat(maxInvestmentPerTrade))
 		{
-			quantity = Math.round(parseFloat(maxInvestmentPerTrade)/buyPrice);
+			let tempQty = parseFloat(maxInvestmentPerTrade)/buyPrice;
+			quantity = (tempQty<1) ? 0 : Math.round(tempQty);
 			investmentAmount = buyPrice * Math.round(quantity);
 			$("#quantityUnitsLbl").text(Math.round(quantity));
 		}
@@ -122,7 +115,13 @@ function buyTransactionHandler(stockPrice,stopLoss,lossPerUnit,quantity)
 					  "3. SELL "+Math.round(quantity)+" units at price "+ruppeSymbol+targetPrice;
 					  
 			$('#tradeEntries').html(entries);		
-		}	  
+		}	
+		
+		if(quantity===0)
+		{
+			$(".profit-loss-cell").text("");
+			$('#tradeEntries').html("<span class='text-danger'>Insufficiant Investment per trade to buy this share</span>");	
+		}  
 }
 
 function shortSellTransactionHandler(stockPrice,stopLoss,lossPerUnit,quantity)
@@ -134,7 +133,8 @@ function shortSellTransactionHandler(stockPrice,stopLoss,lossPerUnit,quantity)
 		let maxInvestmentPerTrade = $("#maxInvestmentPerTradeTxt").val();
 		if(investmentAmount > parseFloat(maxInvestmentPerTrade))
 		{
-			quantity = Math.round(parseFloat(maxInvestmentPerTrade)/targeBuyPrice);
+			let tempQty = parseFloat(maxInvestmentPerTrade)/targeBuyPrice;
+			quantity = (tempQty<1) ? 0 : Math.round(tempQty);
 			investmentAmount = targeBuyPrice * Math.round(quantity);
 			$("#quantityUnitsLbl").text(Math.round(quantity));
 		}
@@ -150,6 +150,7 @@ function shortSellTransactionHandler(stockPrice,stopLoss,lossPerUnit,quantity)
 			$("#targetLbl").text(Math.round(targeBuyPrice));
 		}
 		
+		
 		if(!isNaN(investmentAmount) && !isNaN(possibleLoss) && !isNaN(totalProfit) && !isNaN(possibleProfit) && !isNaN(roi))
 		{
 			$("#investedAmountCell").html(ruppeSymbol+investmentAmount);
@@ -164,4 +165,19 @@ function shortSellTransactionHandler(stockPrice,stopLoss,lossPerUnit,quantity)
 					  
 			$('#tradeEntries').html(entries);	
 		}
+		
+		if(quantity===0)
+		{
+			$(".profit-loss-cell").text("");
+			$('#tradeEntries').html("<span class='text-danger'>Insufficiant Investment per trade to buy this share</span>");	
+		}
+}
+
+function resetForm()
+{
+	$(".trade-plan-element").text("");
+	$(".trade-plan-element").val("");
+	$(".quantity-plan-element").text("");
+	$(".quantity-plan-element").val("");
+	$('#tradeEntries').html("");	
 }

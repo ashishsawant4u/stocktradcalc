@@ -7,8 +7,8 @@
 </div>
 <div class="card-body">
 
-<div class="row row-cols-lg-auto g-1 align-items-center pb-3">
-	<div class="w-50">
+<div class="row  g-2 pb-3">
+	<div class=" col-xs-6 col-lg-6">
 		<label class="pe-2">Transaction Type<span class="text-danger">*</span></label>
 		<div class="btn-group" role="group" aria-label="Basic radio toggle button group">
 		  <input type="radio" class="btn-check btnradioBuySell" name="btnradioBuySell" id="btnradioBuy" autocomplete="off" checked>
@@ -19,43 +19,45 @@
 		</div>
 	</div>
 	
-	<div class="input-group mb-3 w-50">
-		 <span class="input-group-text">Company/Stock Name</span>
-		 <input type="text" class="form-control fw-bold" id="companyNameTxt">
+	<div class="col-xs-6 col-lg-6">
+		<div class="input-group mb-3">
+			 <span class="input-group-text">Company/Stock Name</span>
+			 <input type="text" class="form-control fw-bold" id="companyNameTxt">
+		</div>
 	</div>
 </div> 	  		 
    	
   <form id="quantityPlannerForm">
   		<div class="row bg-info p-2">
-  			 <div class="col">
+  			 <div class="col-xs-3 col-lg-3">
 		      <label>Stock Price/Limit Price</label><span class="text-danger">*</span>
 		      <div class="input-group mb-3">	
 	      			<span class="input-group-text">&#8377;</span>	
 		      		<input type="text" class="form-control quantity-plan-element only-numbers" placeholder="Stock Entry Price" id="stockPriceTxt">
 		      </div>
 		    </div>
-		    <div class="col">
+		    <div class="col-xs-3 col-lg-3">
 		      <label>Stop Loss</label><span class="text-danger">*</span>
 		      <div class="input-group mb-3">	
 	      		<span class="input-group-text">&#8377;</span>	
 		      	<input type="text" class="form-control quantity-plan-element only-numbers" placeholder="Stop Loss Price" id="stopLossTxt">
 		      </div>
 		    </div>
-		    <div class="col bg-light p-2">
+		    <div class="col-xs-2 col-lg-2 bg-light p-2">
 		      <label class="fw-bold">Loss Per Unit</label>
 		      <div class="input-group mb-3 d-none" id="lossPerUnitsGroup">	
 	      		<span class="input-group-text">&#8377;</span>	
 		        <span id="lossPerUnitsLbl" class="fw-bold form-control quantity-plan-element"></span>
 		      </div>
 		    </div>
-		    <div class="col bg-light p-2">
+		    <div class="col-xs-2 col-lg-2 bg-light p-2">
 		      <label class="fw-bold">Target/Exit Price</label>
 		      <div class="input-group mb-3 d-none" id="targetGroup">	
 	      		<span class="input-group-text">&#8377;</span>		
 		        <span id="targetLbl" class="fw-bold form-control quantity-plan-element"></span>
 		      </div>
 		    </div>
-		    <div class="col bg-light p-2">
+		    <div class="col-xs-2 col-lg-2 bg-light p-2">
 		      <label class="fw-bold">Quantity can be purchased</label>	
 		      <div class="input-group mb-3 d-none" id="quantityUnitsGroup">
 		     	<span class="input-group-text">
