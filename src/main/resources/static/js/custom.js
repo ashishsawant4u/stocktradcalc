@@ -109,9 +109,12 @@ function buyTransactionHandler(stockPrice,stopLoss,lossPerUnit,quantity)
 			$("#possibleProfitCell").html(ruppeSymbol+possibleProfit);
 			$("#roiCell").text(roi+"%");
 			
+			let slPercentage = (100- ((stopLossPrice / buyPrice)*100)).toFixed(2);
+			let targetPercentage = (100- ((buyPrice / targetPrice)*100)).toFixed(2);
+			
 			let entries = "1. BUY "+Math.round(quantity)+" units at price "+ruppeSymbol+buyPrice + "<br>"+
-					  "2. Put STOP LOSS for "+Math.round(quantity)+" units at price "+stopLossPrice + "<br>"+
-					  "3. SELL "+Math.round(quantity)+" units at price "+ruppeSymbol+targetPrice;
+					  "2. Put STOP LOSS for "+Math.round(quantity)+" units at price "+stopLossPrice +" ("+slPercentage+"%)"+ "<br>"+
+					  "3. SELL "+Math.round(quantity)+" units at price "+ruppeSymbol+targetPrice+"("+targetPercentage+"%)";
 					  
 			$('#tradeEntries').html(entries);
 			summaryTable(buyPrice,quantity,stopLossPrice,lossPerUnit,targetPrice,investmentAmount,possibleLoss,totalProfit,possibleProfit,roi,entries);		
@@ -159,9 +162,12 @@ function shortSellTransactionHandler(stockPrice,stopLoss,lossPerUnit,quantity)
 			$("#possibleProfitCell").html(ruppeSymbol+possibleProfit);
 			$("#roiCell").text(roi+"%");
 			
+			let slPercentage = (100- (( shortSellPrice / stopLossPrice)*100)).toFixed(2);
+			let targetPercentage = (100- ((targeBuyPrice / shortSellPrice)*100)).toFixed(2);
+			
 			let entries = "1. SHORT SELL "+Math.round(quantity)+" units at price "+ruppeSymbol+shortSellPrice + "<br>"+
-					  "2. Put STOP LOSS for "+Math.round(quantity)+" units at price "+stopLossPrice + "<br>"+
-					  "3. BUY "+Math.round(quantity)+" units at price "+ruppeSymbol+targeBuyPrice;
+					  "2. Put STOP LOSS for "+Math.round(quantity)+" units at price "+stopLossPrice+" ("+slPercentage+"%)"+ "<br>"+
+					  "3. BUY "+Math.round(quantity)+" units at price "+ruppeSymbol+targeBuyPrice+" ("+targetPercentage+"%)";
 					  
 			$('#tradeEntries').html(entries);	
 			summaryTable(targeBuyPrice,quantity,stopLossPrice,lossPerUnit,shortSellPrice,investmentAmount,possibleLoss,totalProfit,possibleProfit,roi,entries);
