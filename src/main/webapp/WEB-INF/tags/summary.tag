@@ -6,6 +6,7 @@
 	Summary
 	<tags:copySummary/>
 </p>	
+<div class="table-responsive">
 <table class="table table-bordered  float-end" id="summaryDetailsTable">
 		  	<thead>
 		      <tr>
@@ -42,5 +43,5 @@
 		  		</tr>
 		  	</tbody>
 		  </table>
-		  
+</div>		  
 </div>		  
