@@ -8,36 +8,38 @@
 
 
 <div class="col-xs-6 col-lg-6">
-<table class="table table-hover  float-end" id="buyDetailsTable">
-  	<thead>
-      <tr>
-        <th>Profit & Loss</th>
-        <th>Amount</th>
-      </tr>
-    </thead>
-  	<tbody>
-  		<tr>
-  			<td class="fw-bold">Invested Amount</td>
-  			<td id="investedAmountCell" class="profit-loss-cell"></td>
-  		</tr>
-  		<tr>
-  			<td class="fw-bold">Possible Loss</td>
-  			<td id="possibleLossCell" class="profit-loss-cell"></td>
-  		</tr>
-  		<tr>
-  			<td class="fw-bold">Profit Amount</td>
-  			<td id="totalProfitCell" class="profit-loss-cell"></td>
-  		</tr>
-  		<tr>
-  			<td class="fw-bold">Possible Profit</td>
-  			<td id="possibleProfitCell" class="profit-loss-cell"></td>
-  		</tr>
-  		<tr>
-  			<td class="fw-bold">ROI %</td>
-  			<td id="roiCell" class="profit-loss-cell"></td>
-  		</tr>
-  	</tbody>
-  </table>
+		<div class="table-responsive">
+		<table class="table table-hover  float-end" id="buyDetailsTable">
+		  	<thead>
+		      <tr>
+		        <th class="th-xs-3">Profit & Loss</th>
+		        <th class="th-xs-3">Amount</th>
+		      </tr>
+		    </thead>
+		  	<tbody>
+		  		<tr>
+		  			<td class="fw-bold">Invested Amount</td>
+		  			<td id="investedAmountCell" class="profit-loss-cell"></td>
+		  		</tr>
+		  		<tr>
+		  			<td class="fw-bold">Possible Loss</td>
+		  			<td id="possibleLossCell" class="profit-loss-cell"></td>
+		  		</tr>
+		  		<tr>
+		  			<td class="fw-bold">Profit Amount</td>
+		  			<td id="totalProfitCell" class="profit-loss-cell"></td>
+		  		</tr>
+		  		<tr>
+		  			<td class="fw-bold">Possible Profit</td>
+		  			<td id="possibleProfitCell" class="profit-loss-cell"></td>
+		  		</tr>
+		  		<tr>
+		  			<td class="fw-bold">ROI %</td>
+		  			<td id="roiCell" class="profit-loss-cell"></td>
+		  		</tr>
+		  	</tbody>
+		  </table>
+		</div>
   
 </div>  
 
