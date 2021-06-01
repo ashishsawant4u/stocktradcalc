@@ -26,7 +26,7 @@ $( document ).ready(function() {
 			let perTradeRisk = $("#perTradeRiskLbl").text();
 			if(undefined != stockPrice && undefined != stopLoss && undefined != perTradeRisk)
 			{
-				let lossPerUnit = parseFloat(stockPrice) - parseFloat(stopLoss);
+				let lossPerUnit = (parseFloat(stockPrice) - parseFloat(stopLoss)).toFixed(2);
 				lossPerUnit = Math.abs(lossPerUnit);
 				if(!isNaN(lossPerUnit))
 	   			{
@@ -56,7 +56,13 @@ $( document ).ready(function() {
 	
 	$(".only-numbers").on("keyup change", function(e) {
 		
-		this.value=this.value.replace(/[^\d]/,'');
+		
+		let validNumber = new RegExp(/^\d*\.?\d*$/);
+		
+		 if (!validNumber.test(this.value)) 
+		 {
+		 	this.value='';
+		 }
 		
      });
      
@@ -98,23 +104,23 @@ function buyTransactionHandler(stockPrice,stopLoss,lossPerUnit,quantity)
 		if(!isNaN(targetPrice))
 		{
 			$("#targetGroup").removeClass("d-none");
-			$("#targetLbl").text(Math.round(targetPrice));
+			$("#targetLbl").text(targetPrice.toFixed(2));
 		}
 		
 		if(!isNaN(investmentAmount) && !isNaN(possibleLoss) && !isNaN(totalProfit) && !isNaN(possibleProfit) && !isNaN(roi))
 		{
-			$("#investedAmountCell").html(ruppeSymbol+investmentAmount);
-			$("#possibleLossCell").html(ruppeSymbol+possibleLoss);
-			$("#totalProfitCell").html(ruppeSymbol+totalProfit);
-			$("#possibleProfitCell").html(ruppeSymbol+possibleProfit);
+			$("#investedAmountCell").html(ruppeSymbol+investmentAmount.toFixed(2));
+			$("#possibleLossCell").html(ruppeSymbol+possibleLoss.toFixed(2));
+			$("#totalProfitCell").html(ruppeSymbol+totalProfit.toFixed(2));
+			$("#possibleProfitCell").html(ruppeSymbol+possibleProfit.toFixed(2));
 			$("#roiCell").text(roi+"%");
 			
 			let slPercentage = (100- ((stopLossPrice / buyPrice)*100)).toFixed(2);
 			let targetPercentage = (100- ((buyPrice / targetPrice)*100)).toFixed(2);
 			
-			let entries = "1. BUY "+Math.round(quantity)+" units at price "+ruppeSymbol+buyPrice + "<br>"+
+			let entries = "1. BUY "+Math.round(quantity)+" units at price "+ruppeSymbol+buyPrice.toFixed(2) + "<br>"+
 					  "2. Put STOP LOSS for "+Math.round(quantity)+" units at price "+stopLossPrice +" ("+slPercentage+"%)"+ "<br>"+
-					  "3. SELL "+Math.round(quantity)+" units at price "+ruppeSymbol+targetPrice+"("+targetPercentage+"%)";
+					  "3. SELL "+Math.round(quantity)+" units at price "+ruppeSymbol+targetPrice.toFixed(2)+"("+targetPercentage+"%)";
 					  
 			$('#tradeEntries').html(entries);
 			summaryTable(buyPrice,quantity,stopLossPrice,lossPerUnit,targetPrice,investmentAmount,possibleLoss,totalProfit,possibleProfit,roi,entries);		
@@ -150,24 +156,24 @@ function shortSellTransactionHandler(stockPrice,stopLoss,lossPerUnit,quantity)
 		if(!isNaN(targeBuyPrice))
 		{
 			$("#targetGroup").removeClass("d-none");
-			$("#targetLbl").text(Math.round(targeBuyPrice));
+			$("#targetLbl").text(targeBuyPrice.toFixed(2));
 		}
 		
 		
 		if(!isNaN(investmentAmount) && !isNaN(possibleLoss) && !isNaN(totalProfit) && !isNaN(possibleProfit) && !isNaN(roi))
 		{
-			$("#investedAmountCell").html(ruppeSymbol+investmentAmount);
-			$("#possibleLossCell").html(ruppeSymbol+possibleLoss);
-			$("#totalProfitCell").html(ruppeSymbol+totalProfit);
-			$("#possibleProfitCell").html(ruppeSymbol+possibleProfit);
+			$("#investedAmountCell").html(ruppeSymbol+investmentAmount.toFixed(2));
+			$("#possibleLossCell").html(ruppeSymbol+possibleLoss.toFixed(2));
+			$("#totalProfitCell").html(ruppeSymbol+totalProfit.toFixed(2));
+			$("#possibleProfitCell").html(ruppeSymbol+possibleProfit.toFixed(2));
 			$("#roiCell").text(roi+"%");
 			
 			let slPercentage = (100- (( shortSellPrice / stopLossPrice)*100)).toFixed(2);
 			let targetPercentage = (100- ((targeBuyPrice / shortSellPrice)*100)).toFixed(2);
 			
-			let entries = "1. SHORT SELL "+Math.round(quantity)+" units at price "+ruppeSymbol+shortSellPrice + "<br>"+
+			let entries = "1. SHORT SELL "+Math.round(quantity)+" units at price "+ruppeSymbol+shortSellPrice.toFixed(2) + "<br>"+
 					  "2. Put STOP LOSS for "+Math.round(quantity)+" units at price "+stopLossPrice+" ("+slPercentage+"%)"+ "<br>"+
-					  "3. BUY "+Math.round(quantity)+" units at price "+ruppeSymbol+targeBuyPrice+" ("+targetPercentage+"%)";
+					  "3. BUY "+Math.round(quantity)+" units at price "+ruppeSymbol+targeBuyPrice.toFixed(2)+" ("+targetPercentage+"%)";
 					  
 			$('#tradeEntries').html(entries);	
 			summaryTable(targeBuyPrice,quantity,stopLossPrice,lossPerUnit,shortSellPrice,investmentAmount,possibleLoss,totalProfit,possibleProfit,roi,entries);
@@ -196,15 +202,15 @@ function summaryTable(buyPrice,quantity,stopLossPrice,lossPerUnit,targetPrice,in
 	let ruppeSymbol = "<span class='fw-bold'>&#8377;</span>";
 	$("#summaryStockCell").html($("#companyNameTxt").val());
 	$("#summaryTransactionTypeCell").html($('#btnradioBuy').is(':checked') ? 'BUY' : 'SHORT SELL');
-	$("#summaryEntryPriceCell").html(buyPrice);
+	$("#summaryEntryPriceCell").html(buyPrice.toFixed(2));
 	$("#summaryQuantityCell").html(quantity);
 	$("#summaryStopLossCell").html(stopLossPrice);
 	$("#summaryLossPerUnitCell").html(lossPerUnit);
-	$("#summaryTargetPriceCell").html(Math.round(targetPrice));
-	$("#summaryInvestedAmountCell").html(ruppeSymbol+investmentAmount);
-	$("#summaryPossibleLossCell").html(ruppeSymbol+possibleLoss);
-	$("#summaryProfitAmountCell").html(ruppeSymbol+totalProfit);
-	$("#summaryPossibleProfitCell").html(ruppeSymbol+possibleProfit);
+	$("#summaryTargetPriceCell").html(targetPrice.toFixed(2));
+	$("#summaryInvestedAmountCell").html(ruppeSymbol+investmentAmount.toFixed(2));
+	$("#summaryPossibleLossCell").html(ruppeSymbol+possibleLoss.toFixed(2));
+	$("#summaryProfitAmountCell").html(ruppeSymbol+totalProfit.toFixed(2));
+	$("#summaryPossibleProfitCell").html(ruppeSymbol+possibleProfit.toFixed(2));
 	$("#summaryROICell").html(roi+"%");
 	$("#summaryEntriesCell").html(entries);
 }
