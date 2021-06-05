@@ -66,11 +66,27 @@ $( document ).ready(function() {
 		
      });
      
+     $("#companyNameTxt").on("keyup change", function(e) {
+			$(this).val(this.value.toUpperCase());
+     });
+     
      $("#resetFormLink").on("click", function(e) {
 		
 			resetForm();
 		
      });
+     
+     $("#resetTradeCalcLink").on("click", function(e) {
+		
+			$(".quantity-plan-element").text("");
+			$(".quantity-plan-element").val("");
+			$('#tradeEntries').html("");	
+			$(".profit-loss-cell").text("");
+			$("#summarySection").addClass('d-none');
+		
+     });
+     
+     
      
      $(".btnradioBuySell").on("change", function(e) {
      		$(".quantity-plan-element").text("");
@@ -193,6 +209,7 @@ function resetForm()
 	$(".quantity-plan-element").text("");
 	$(".quantity-plan-element").val("");
 	$('#tradeEntries').html("");	
+	$(".profit-loss-cell").text("");
 	$("#summarySection").addClass('d-none');
 }
 

@@ -1,7 +1,7 @@
 <%@ tag language="java" pageEncoding="ISO-8859-1"%>
 <div id="tradePlannerSection" class="card">
 <div class="card-header fw-bold">
-    Trade Planner
+    Trade Risk Planner
 </div>
 <div class="card-body">
    <form id="tradePlannerForm">
